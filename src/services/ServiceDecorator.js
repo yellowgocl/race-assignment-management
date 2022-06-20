@@ -9,8 +9,7 @@ class ServiceDecorator {
         return this.instance
     }
     constructor(service) {
-        this.service = this.wrap(service)
-        super()
+        this.service = this.#wrap(service)
     }
 
     #wrap(instance) {
