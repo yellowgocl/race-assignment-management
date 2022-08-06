@@ -2,8 +2,9 @@ import React from 'react'
 import useApi from '@/hooks/useApi'
 import { config as apiConfig } from '@/services'
 import { withApi, ApiProvider } from '@/context/ApiContext'
-console.info(apiConfig['user/get'])
 export default (props) => {
+
+    const [{ isFetching, hasError }, apixxx] = useApi(apiConfig['/xxx/api'])
 
     return (
         <>
@@ -25,7 +26,6 @@ export default (props) => {
                 request={apiConfig['user/update']}>
                 {
                     ({fetch, isFetching, hasError, error}) => {
-                        console.info(hasError)
                         return(
                             <>
                             { hasError && (<span style={{color:'red'}}>hasError: {JSON.stringify(hasError)}</span> )}
