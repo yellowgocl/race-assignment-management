@@ -1,16 +1,16 @@
 # React starter
 - [React starter](#react-starter)
   - [序言](#序言)
-    - [React主要术语介绍](#react主要术语介绍)
-      - [**1. Class Component(类组件)**](#1-class-component类组件)
-      - [**2. Functional Component(函数组件)**](#2-functional-component函数组件)
-      - [**3. Props**](#3-props)
-      - [**4. State**](#4-state)
-      - [**5. 代码拆分**](#5-代码拆分)
-      - [**6. HOC(High Order Component)**](#6-hochigh-order-component)
-      - [**7. Context(上下文)**](#7-context上下文)
-    - [MWS的简介](#mws的简介)
-    - [MWS的限制和注意事项](#mws的限制和注意事项)
+  - [React主要术语介绍](#react主要术语介绍)
+    - [**1. Class Component(类组件)**](#1-class-component类组件)
+    - [**2. Functional Component(函数组件)**](#2-functional-component函数组件)
+    - [**3. Props**](#3-props)
+    - [**4. State**](#4-state)
+    - [**5. 代码拆分**](#5-代码拆分)
+    - [**6. HOC(High Order Component)**](#6-hochigh-order-component)
+    - [**7. Context(上下文)**](#7-context上下文)
+  - [MWS的简介](#mws的简介)
+  - [MWS的限制和注意事项](#mws的限制和注意事项)
 ## 序言
 > 建议先从官网文档阅读，这样会让你更快对React这个框架有一个更好的了解
 > ##### 一般React做网站应用入门可以分为以下几点进行，如果你没有任何基础，可以自行根据以下步骤先去了解：
@@ -19,7 +19,7 @@
 + [路由的基本概念](https://react-guide.github.io/react-router-cn/)
 + [ES6的语法基础(可选)](https://es6.ruanyifeng.com/#docs/string-methods)
 
-### React主要术语介绍
+## React主要术语介绍
 
 1. Class Component (类组件)
 2. Functional Component(函数组件)
@@ -29,7 +29,7 @@
 6. HOC (高阶组件)
 7. Context (上下文)
 
-#### **1. Class Component(类组件)**
+### **1. Class Component(类组件)**
 > 在 React vsersion < 16.8 之前，Class Component是跟踪 React 组件状态和生命周期的唯一方法。 功能组件被认为是"无状态的"。所以设计组件我们会使用如下伪代码的类似方式进行。
 >
 
@@ -59,7 +59,7 @@ function App () => {
     <div>im class component</div>
 ```
 
-#### **2. Functional Component(函数组件)**
+### **2. Functional Component(函数组件)**
 > 在 React vsersion > 16.8 之后，随着 Hooks 的加入，Function Component几乎可以完全覆盖Class Component的所有功能。 以至于您可能永远不需要在React 中使用 Class 组件。
 > 
 > ##### **备注：** 虽然你仍然可以使用Class Component, 不过Functional Component是首选
@@ -84,7 +84,7 @@ function App () => {
 ```html
     <div>im functional component</div>
 ```
-#### **3. Props**
+### **3. Props**
 > Props是拆分组件的入参，根据单项数据流的描述，你应该保持这个参数不被组件改变，这个概念和Vue的组件设计是类似的，只不过Vue有双向绑定语法糖来简化书写的代码量。以下我们来看一段伪代码，简单的写react组件并在入口调用它。
 
 ```javascript
@@ -107,7 +107,7 @@ function App () => {
 ```html
     <div>im my component, my name pass from props</div>
 ```
-#### **4. State**
+### **4. State**
 > state和Vue里面的data概念是类似的，可以理解成是对当前组件的状态管理的集，以下给出一个简单的例子说明。
 > 根据上面我们学到的基础，我们把MyComponent稍微改装一下，把名字改成Counter，然后我们加入**useState**这个hook，用于让当前的functional Component具备管理状态的能力。然后为Counter组件内渲染的button加入点击事件，并在该点击的时间内执行setCount让count的数值改变。
 > ##### 试着把useState(0)的0改成10，就会让count这个状态初始值变成10开始。
@@ -165,7 +165,7 @@ new Vue({
 })
 
 ```
-#### **5. 代码拆分**
+### **5. 代码拆分**
 > 当一个项目的业务量到达一定程度，如果我们不进行一些基础功能和业务的拆分，这会让这个项目的结构和代码比较难阅读和理解，而且修改的难度和复杂程度也会成倍上升。
 > 以下先从一种基础的业务描述一种场景，例如我们在开发UI的过程中会经常遇到点击某个按钮后，按钮需要禁用并展示加载的indicator，在加载完成后则状态复原。
 > 
@@ -263,7 +263,7 @@ export default Feature
 
 ```
 
-#### **6. HOC(High Order Component)**
+### **6. HOC(High Order Component)**
 > HOC中文意思是高阶组件，可以理解成是高阶函数的一个延伸。它不属于React的一部分或者任何api，你更应该将它理解成是一种组件复用的技巧。
 > 
 > 具体而言，高阶组件是参数为组件，返回值为新组件的函数。上面的代码有介绍到，组件拆分是将 props 转换为 UI，而高阶组件是将组件转换为另一个组件。这里碍于边幅问题不能详细的描述，但我们还是可以基于上面那个简单的场景，继续深化以下。下面这段代码将演示一下，如何新增了一个高阶组件
@@ -347,7 +347,7 @@ function Feature(props) {
 export default withLoading()(Feature)
 ```
 
-#### **7. Context(上下文)**
+### **7. Context(上下文)**
 > React中文意思是上下文，是React中对于跨组件共享状态和控制状态的其中一种手段。可以类比成vue的provider和inject，只是vue从设计上没有提供更改provider的值就是了，这是和react的context有根本上的区别的。
 > 
 > 具体而言，上下文就是可以理解成在顶层包装好一个状态集合，然后这个层下的所有子组件都可以通过useContext来获取这个共享的状态集。
@@ -456,8 +456,8 @@ export default withLoading()(Feature)
 ```
 
 
-### MWS的简介
+## MWS的简介
 > 待完善
 
-### MWS的限制和注意事项
+## MWS的限制和注意事项
 > 待完善
